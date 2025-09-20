@@ -1,35 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BenchScout Sports. Your app for everything sports related.</title>
-  <link rel="stylesheet" href="/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BenchScout | Your Sports. Your Way.</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import for a clean look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Set a dark, smooth background for the whole page */
+        body {
+            background-color: #0d1117;
+            color: #d1d5db;
+        }
+
+        /* Utility class for a vibrant gradient button */
+        .gradient-button {
+            background-image: linear-gradient(135deg, #7c3aed, #5b21b6);
+            box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.4);
+            transition: all 0.3s ease;
+        }
+        .gradient-button:hover {
+            box-shadow: 0 6px 20px 0 rgba(124, 58, 237, 0.6);
+            transform: translateY(-2px);
+        }
+        .gradient-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Subtle glowing effect for cards, inspired by granola.ai */
+        .card-glow {
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Custom scrollbar styling for a consistent dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #4b5563;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+    </style>
 </head>
+<body class="antialiased">
 
-<body>
-  <nav>
-    <ul>
-      <li><a href="/">BenchScout</a></li>
-      <li><a href="/">Coming February 21st</a></li>
-    </ul>
-  </nav>
-  <main>
-    <div class="main_header">
-      <h1 class="main_title">BenchScout</h1>
-      <p class="main_text">Your place for everything sports related.</p>
-      <p class="main_text">Coming spring time.</p>
-      <form action="https://getform.io/f/bllloyrb" method="POST">
-        <p class="main_text">Signup for early access here.</p>
-        <input required type="text" name="name" class="main_input" placeholder="Your name">
-        <input required type="text" name="email" class="main_input" placeholder="Your email or phone number">
-        <!-- add hidden Honeypot input to prevent spams -->
-        <input type="hidden" name="_gotcha" style="display:none !important">
-        <button class="main_input" type="submit">Signup</button>
-      </form>
-    </div>
-  </main>
+    <!-- Header & Hero Section -->
+    <header class="relative overflow-hidden pt-20 pb-32">
+        <!-- Background element for a subtle gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900 to-indigo-900 opacity-20 transform -skew-y-3 -top-20"></div>
+        <div class="relative container mx-auto px-6 text-center">
+            
+            <!-- Brand Logo with Title & Tagline -->
+            <div class="mb-8 flex flex-col items-center">
+                <!-- BenchScout Binocular Logo -->
+                <svg class="w-16 h-16 text-white mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 20.25H6.5C5.94772 20.25 5.5 19.8023 5.5 19.25V5.5C5.5 4.94772 5.94772 4.5 6.5 4.5H10V20.25Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 20.25H17.5C18.0523 20.25 18.5 19.8023 18.5 19.25V5.5C18.5 4.94772 18.0523 4.5 17.5 4.5H14V20.25Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 21.5V20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 3.5V2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 4.5H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 20.25H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 4.5C14.8284 4.5 15.5 3.82843 15.5 3C15.5 2.17157 14.8284 1.5 14 1.5C13.1716 1.5 12.5 2.17157 12.5 3C12.5 3.82843 13.1716 4.5 14 4.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 4.5C9.17157 4.5 8.5 3.82843 8.5 3C8.5 2.17157 9.17157 1.5 10 1.5C10.8284 1.5 11.5 2.17157 11.5 3C11.5 3.82843 10.8284 4.5 10 4.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-4xl font-extrabold text-white leading-none">BenchScout</h1>
+                <p class="text-lg text-gray-400 mt-2">Your Sports. Your Way.</p>
+            </div>
+            
+            <!-- Main Hero Content -->
+            <h2 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                The <span class="text-purple-400">only sports platform</span> you'll ever need.
+            </h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                BenchScout gives you the unfiltered stats, real-time insights, and community you crave. Ditch the noise, get the game.
+            </p>
+
+            <!-- Main Signup Form -->
+            <div class="max-w-md mx-auto">
+                <form id="signup" class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Enter your email to join the waitlist" required
+                        class="flex-grow bg-gray-800 text-gray-200 border border-gray-700 rounded-xl px-6 py-4 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-colors">
+                    <button type="submit" class="gradient-button text-white px-8 py-4 rounded-xl font-bold">
+                        Get Early Access
+                    </button>
+                </form>
+                <p id="status" class="text-center mt-4 text-green-400 text-sm font-medium"></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section with Screenshot Placeholders -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-16">
+                Engineered for the modern fan.
+            </h2>
+            
+            <!-- Feature 1: Live Scores & Stats -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-2xl font-bold text-white mb-4">Lightning-Fast Live Scores</h3>
+                    <p class="text-gray-400 text-lg mb-6">
+                        Stay ahead of the game with our real-time, ticker-style score updates. Never miss a single point, play, or goal as it happens, with instant notifications and in-depth box scores.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Real-time data feeds.
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Detailed play-by-play.
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 flex justify-center p-8">
+                    <!-- Placeholder with a modern, glowing look -->
+                    <div class="w-full md:w-3/4 lg:w-full max-w-sm rounded-2xl p-8 bg-gray-800 border border-gray-700 card-glow transition-transform transform hover:scale-105 flex items-center justify-center">
+                        <span class="text-lg text-gray-500 font-bold">Live Scores UI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2: Player & Team Analytics -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+                <div class="flex justify-center p-8">
+                    <!-- Placeholder with a modern, glowing look -->
+                    <div class="w-full md:w-3/4 lg:w-full max-w-sm rounded-2xl p-8 bg-gray-800 border border-gray-700 card-glow transition-transform transform hover:scale-105 flex items-center justify-center">
+                        <span class="text-lg text-gray-500 font-bold">Player Stats UI</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Deep-Dive AI Fantasy & Analytics</h3>
+                    <p class="text-gray-400 text-lg mb-6">
+                        Unlock a world of advanced player metrics and team insights. Our proprietary algorithms analyze performance trends, predict outcomes, and provide the data you need to win your fantasy league.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Cross-sport fantasy tracking.
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            AI-driven trade and waiver suggestions.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 3: Community & Social -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-2xl font-bold text-white mb-4">Your Squad, Your Community</h3>
+                    <p class="text-gray-400 text-lg mb-6">
+                        Connect with other fans in dedicated forums and groups for every team and sport. Share your hot takes, debate the latest news, and build your own sports community without the endless feed of a social network.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Team-specific discussion boards.
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Gamified leaderboards for top contributors.
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 flex justify-center p-8">
+                    <!-- Placeholder with a modern, glowing look -->
+                    <div class="w-full md:w-3/4 lg:w-full max-w-sm rounded-2xl p-8 bg-gray-800 border border-gray-700 card-glow transition-transform transform hover:scale-105 flex items-center justify-center">
+                        <span class="text-lg text-gray-500 font-bold">Community UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section - New -->
+    <section class="py-20 bg-gray-950">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Choose Your BenchScout Experience.
+            </h2>
+            <p class="text-lg md:text-xl text-gray-400 max-w-xl mx-auto mb-10">
+                Pick the plan that's right for you. Get started with the free plan or upgrade for an ad-free experience.
+            </p>
+            <div class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-8">
+                <!-- Free Plan Card -->
+                <div class="bg-gray-800 rounded-2xl p-8 max-w-sm mx-auto shadow-xl border border-gray-700 w-full card-glow">
+                    <h3 class="text-2xl font-bold text-white mb-2">Free Plan</h3>
+                    <p class="text-purple-400 text-5xl font-extrabold mb-4">Free<span class="text-xl font-normal text-gray-400">/forever</span></p>
+                    <p class="text-sm text-gray-400 mb-6">Access all core features, ad-supported.</p>
+                    <ul class="space-y-3 text-gray-300 text-left mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            AI-written articles & content
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Live scores & game chats
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Basic fantasy league tracking
+                        </li>
+                    </ul>
+                    <button class="gradient-button w-full text-white px-8 py-4 rounded-xl font-bold">
+                        Get Early Access
+                    </button>
+                </div>
+
+                <!-- Premium Plan Card -->
+                <div class="bg-gray-800 rounded-2xl p-8 max-w-sm mx-auto shadow-xl border-4 border-purple-500 w-full card-glow relative">
+                    <div class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full absolute -top-8 right-0 mt-4 mr-4">
+                        Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Premium Plan</h3>
+                    <p class="text-purple-400 text-5xl font-extrabold mb-4">$1.49<span class="text-xl font-normal text-gray-400">/month</span></p>
+                    <p class="text-sm text-gray-400 mb-6">Unlock exclusive AI tools and an ad-free experience.</p>
+                    <ul class="space-y-3 text-gray-300 text-left mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            **Everything in Free**, and...
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Ad-free experience
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            AI fantasy insights & suggestions
+                        </li>
+                    </ul>
+                    <button class="gradient-button w-full text-white px-8 py-4 rounded-xl font-bold">
+                        Get Early Access
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action Section -->
+    <section class="py-20 bg-gray-950">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Stop watching. Start scouting.
+            </h2>
+            <p class="text-lg md:text-xl text-gray-400 max-w-xl mx-auto mb-10">
+                Join thousands of fans who are ready for a new way to follow sports. Be first in line.
+            </p>
+            <div class="max-w-xl mx-auto">
+                <form id="signup-bottom" class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Enter your email to join the waitlist" required
+                        class="flex-grow bg-gray-800 text-gray-200 border border-gray-700 rounded-xl px-6 py-4 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-colors">
+                    <button type="submit" class="gradient-button text-white px-8 py-4 rounded-xl font-bold">
+                        Join the Revolution
+                    </button>
+                </form>
+                <p id="status2" class="text-center mt-4 text-green-400 text-sm font-medium"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 BenchScout. All rights reserved.</p>
+    </footer>
+
+    <!-- Supabase Form Hooking Script -->
+    <script type="module">
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm";
+
+  const supabase = createClient(
+    "https://mcqiqmixwtzokhipaxtk.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jcWlxbWl4d3R6b2toaXBheHRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcyNzI0NzksImV4cCI6MjA3Mjg0ODQ3OX0.Ja6et7KMUdOe9XrD1APPi-scGIegq3GNO2FB8vybFRE",
+    { auth: { persistSession: false }, db: { schema: "public" } }
+  );
+
+  async function handleSubmit(form, status) {
+    const emailInput = form.querySelector("input[type='email']");
+    const email = (emailInput.value || "").trim();
+
+    if (!/.+@.+\..+/.test(email)) {
+      status.textContent = "Please enter a valid email.";
+      status.style.color = "#ffb4b4";
+      return;
+    }
+
+    status.textContent = "Adding you to the list...";
+    status.style.color = "#9aa6bf";
+
+    // Use INSERT + ignoreDuplicates to avoid UPDATE under RLS
+    const { error } = await supabase
+      .from("waitlist_signups")
+      .insert(
+        { email, source: "landing", user_agent: navigator.userAgent },
+        { onConflict: "email", ignoreDuplicates: true }
+      );
+
+    if (error) {
+      console.error("Supabase error:", error);
+      status.textContent = error.message || "Error, please try again.";
+      status.style.color = "#ffb4b4";
+    } else {
+      status.textContent = "You're on the list ✔";
+      status.style.color = "#7af0c9";
+      emailInput.value = "";
+    }
+  }
+
+  function hookForm(id, statusId) {
+    const form = document.getElementById(id);
+    const status = document.getElementById(statusId);
+    form.addEventListener("submit", (e) => { e.preventDefault(); handleSubmit(form, status); });
+  }
+
+  hookForm("signup", "status");
+  hookForm("signup-bottom", "status2");
+</script>
 </body>
-
 </html>
